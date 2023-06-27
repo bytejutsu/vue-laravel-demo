@@ -1,19 +1,16 @@
 <template>
     <h1>Home</h1>
-    <nav>
-        <ul>
-            <li><Link href="/">Home</Link></li>
-            <li><Link href="/users">Users</Link></li>
-            <li><Link href="/settings">Settings</Link></li>
-        </ul>
-    </nav>
+    <Nav />
 </template>
 
 <script>
+import Nav from "../Shared/Nav.vue";
 
 export default {
     name: "Home.vue",
-}
+    components: { Nav },
+};
+
 </script>
 
 <style scoped>
