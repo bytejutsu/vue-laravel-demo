@@ -10,6 +10,7 @@ import Layout from "../Shared/Layout.vue";
 export default {
     name: "Home.vue",
     components: { Layout },
+    props: {username: String}
 };
 
 </script>
