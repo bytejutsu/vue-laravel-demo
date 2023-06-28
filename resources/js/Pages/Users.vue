@@ -9,14 +9,13 @@
     </Layout>
 </template>
 
-<script>
+<script setup>
 import Layout from "../Shared/Layout.vue";
 
-export default {
-    name: "Users",
-    components: { Layout },
-    props: { time: String },
-};
+defineProps({
+    time: String,
+});
+
 </script>
 
 <style scoped>
