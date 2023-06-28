@@ -1,19 +1,23 @@
 <template>
-    <Layout>
-        <h1 class="text-4xl font-bold">Users</h1>
-        <div style="margin-top: 800px">
-            <p>The current Time is: {{time}}.</p>
-        </div>
+    <Head>
+        <title>Users</title>
+    </Head>
+    <h1 class="text-4xl font-bold">Users</h1>
 
-        <Link href="/users" class="text-blue-500" preserve-scroll>Refresh</Link>
-    </Layout>
+    <ul>
+        <li
+            v-for="user in users"
+            :key="user.id"
+            v-text="user.name"
+        />
+    </ul>
+
 </template>
 
 <script setup>
-import Layout from "../Shared/Layout.vue";
 
 defineProps({
-    time: String,
+    users: Array,
 });
 
 </script>

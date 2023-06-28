@@ -1,11 +1,11 @@
 <template>
-    <Layout>
-        <h1 class="text-4xl font-bold">Home</h1>
-    </Layout>
+    <Head>
+        <title>Home</title>
+    </Head>
+    <h1 class="text-4xl font-bold">Home</h1>
 </template>
 
 <script setup>
-import Layout from "../Shared/Layout.vue";
 </script>
 
 <style scoped>
