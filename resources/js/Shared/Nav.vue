@@ -1,16 +1,26 @@
 <template>
-    <nav>
-        <ul>
-            <li><Link href="/">Home</Link></li>
-            <li><Link href="/users">Users</Link></li>
-            <li><Link href="/settings">Settings</Link></li>
+    <nav class="">
+        <ul class="flex list-disc space-x-4 list-inside">
+            <li>
+                <NavLink href="/" :active="$page.component === 'Home'">Home</NavLink>
+            </li>
+            <li>
+                <NavLink href="/users/?foo=bar&baz=buzz">Users</NavLink>
+            </li>
+            <li>
+                <NavLink href="/settings">Settings</NavLink>
+            </li>
         </ul>
     </nav>
 </template>
 
 <script>
+
+import NavLink from "./NavLink.vue";
+
 export default {
-    name: "Nav"
+    name: "Nav",
+    components: { NavLink },
 }
 </script>
 
