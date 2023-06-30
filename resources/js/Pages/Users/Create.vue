@@ -17,6 +17,7 @@
                 id="name"
                 required
             >
+            <div v-if="errors.name" v-text="$page.props.errors.name" class="text-red-500 text-xs font-italic mt-1"></div>
         </div>
 
         <div class="mt-6">
@@ -33,6 +34,7 @@
                    id="email"
                    required
             >
+            <div v-if="errors.email" v-text="$page.props.errors.email" class="text-red-500 text-xs font-italic mt-1"></div>
         </div>
 
         <div class="mt-6">
@@ -49,6 +51,7 @@
                    id="password"
                    required
             >
+            <div v-if="errors.password" v-text="$page.props.errors.password" class="text-red-500 text-xs font-italic mt-1"></div>
         </div>
 
         <div class="mt-6">
@@ -64,6 +67,10 @@
 <script setup>
 import { reactive } from "vue";
 import {router} from "@inertiajs/vue3";
+
+defineProps({
+    errors: Object
+});
 
 let form = reactive({
         name: '',
