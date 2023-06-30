@@ -52,7 +52,8 @@
 
 import Pagination from "../../Shared/Pagination.vue";
 import {ref, watch} from "vue";
-import { router } from '@inertiajs/vue3'
+import { router } from '@inertiajs/vue3';
+import throttle from "lodash/throttle";
 
 
 let props = defineProps({
@@ -63,7 +64,7 @@ let props = defineProps({
 
 let search = ref(props.filters.search);
 
-watch(search, value => {
+watch(search, throttle(value => {
     console.log(`changed ${value}`);
     router.visit('/users', {
         method: 'get',
@@ -73,7 +74,7 @@ watch(search, value => {
         preserveState: true,
         replace: true,
     });
-});
+}, 500));
 
 </script>
 
