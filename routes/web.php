@@ -19,6 +19,10 @@ use Inertia\Inertia;
 
 Route::get('login', [LoginController::class, 'create'])->name('login');
 
+Route::post('login', [LoginController::class, 'store']);
+
+Route::post('/logout', [LoginController::class, 'destroy'])->middleware('auth');
+
 Route::middleware('auth')->group(function() {
 
     Route::get('/', function () {
@@ -65,8 +69,5 @@ Route::middleware('auth')->group(function() {
         return Inertia::render('Settings');
     });
 
-    Route::post('/logout', function () {
-        dd('logging the user out');
-    });
 
 });
