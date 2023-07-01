@@ -1,17 +1,23 @@
 <template>
-    <todo-form />
-    <todo-list />
+    <div class="flex flex-col border-solid border-2 border-blue-500 p-2">
+        <todo-form />
+        <todo-list />
+    </div>
 </template>
 
-<script>
+<script setup>
+
 import TodoForm from "./TodoForm.vue";
 import TodoList from "./TodoList.vue";
-export default {
+
+import {defineOptions} from "vue";
+
+defineOptions({
     components: { TodoForm, TodoList },
-    setup() {
-        return {};
-    },
-};
+});
+
 </script>
 
-<style scoped></style>
+<style scoped>
+
+</style>
