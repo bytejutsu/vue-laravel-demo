@@ -12,6 +12,9 @@
         </li>
         <li class="divider"></li>
     </ul>
+    <div class="flex justify-center">
+        <button @click="clearTodos()" class="m-2 p-2 bg-red-500 font-bold text-white">Clear Todos</button>
+    </div>
 </template>
 
 <script setup>
@@ -23,6 +26,10 @@ const store = useTodoListStore();
 
 const { todoList } = storeToRefs(store);
 const { toggleCompleted, deleteTodo } = store;
+
+const clearTodos = () => {
+    todoList.value = [];
+};
 
 </script>
 
