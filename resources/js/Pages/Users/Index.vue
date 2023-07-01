@@ -7,7 +7,7 @@
 
         <div class="flex items-center">
             <h1 class="text-3xl">Users</h1>
-            <Link href="/users/create" class="text-blue-500 text-sm ml-3">New User</Link>
+            <Link v-if="can.createUser" href="/users/create" class="text-blue-500 text-sm ml-3">New User</Link>
         </div>
 
 
@@ -34,7 +34,9 @@
                         >
                             <td class="whitespace-nowrap px-6 py-4 font-medium">{{user.id}}</td>
                             <td class="whitespace-nowrap px-6 py-4">{{user.name}}</td>
-                            <td class="whitespace-nowrap px-6 py-4"><Link :href="`/users/${user.id}/edit`" class="text-blue-500">Edit</Link></td>
+                            <td v-if="user.can.edit" class="whitespace-nowrap px-6 py-4">
+                                <Link :href="`/users/${user.id}/edit`" class="text-blue-500">Edit</Link>
+                            </td>
                         </tr>
                         </tbody>
                     </table>
@@ -59,6 +61,7 @@ import throttle from "lodash/throttle";
 let props = defineProps({
     users: Object,
     filters: Object,
+    can: Object,
 });
 
 
