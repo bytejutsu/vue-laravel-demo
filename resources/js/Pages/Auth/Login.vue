@@ -1,5 +1,5 @@
 <template>
-            <Head title="Login Page"/>
+    <Head title="Login Page"/>
     <main class="grid place-items-center min-h-screen">
         <section class="bg-white p-8 rounded-xl max-w-md mx-auto border">
             <h1 class="text-3xl mb-6">Login</h1>

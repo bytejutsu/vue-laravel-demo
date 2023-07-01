@@ -32,6 +32,7 @@ window.axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
 // });
 
 import { createApp, h } from 'vue'
+import { createPinia } from 'pinia'
 import { createInertiaApp, Head, Link } from '@inertiajs/vue3'
 import Layout from "./Shared/Layout.vue";
 
@@ -51,8 +52,12 @@ createInertiaApp({
         return page;
     },
     setup({ el, App, props, plugin }) {
+
+        const pinia = createPinia();
+
         createApp({ render: () => h(App, props) })
             .use(plugin)
+            .use(pinia)
             .component('Head', Head)
             .component('Link', Link)
             .mount(el)

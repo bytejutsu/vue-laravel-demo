@@ -5,6 +5,9 @@
                 <NavLink href="/" :active="$page.component === 'Home'">Home</NavLink>
             </li>
             <li>
+                <NavLink href="/pinia" :active="$page.component === 'Pinia'">Pinia</NavLink>
+            </li>
+            <li>
                 <NavLink href="/users" :active="$page.component === 'Users'">Users</NavLink>
             </li>
             <li>
