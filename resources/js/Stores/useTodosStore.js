@@ -1,9 +1,9 @@
 import { defineStore } from "pinia";
 
-export const useTodoListStore = defineStore("todoList", {
+export const useTodosStore = defineStore("todos", {
     state: () => ({
-        todoList: [],
         id: 0,
+        todoList: [],
     }),
     actions: {
         addTodo(item) {
@@ -19,6 +19,9 @@ export const useTodoListStore = defineStore("todoList", {
             if (todo) {
                 todo.completed = !todo.completed;
             }
+        },
+        clearTodos(){
+            this.todoList = [];
         },
     },
 });

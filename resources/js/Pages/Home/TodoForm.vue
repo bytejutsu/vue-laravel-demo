@@ -9,16 +9,16 @@
 
 <script setup>
 import { ref } from "vue";
-import {useTodoListStore} from "../../Stores/useTodoListStore.js";
+import {useTodosStore} from "../../Stores/useTodosStore.js";
 
     const todo = ref("");
-    const store = useTodoListStore();
+    const todosStore = useTodosStore();
 
     function addItemAndClear(item) {
         if (item.length === 0) {
             return;
         }
-        store.addTodo(item);
+        todosStore.addTodo(item);
         todo.value = "";
     }
 

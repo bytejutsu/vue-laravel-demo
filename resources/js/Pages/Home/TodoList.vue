@@ -20,16 +20,12 @@
 <script setup>
 
 import { storeToRefs } from "pinia";
-import {useTodoListStore} from "../../Stores/useTodoListStore.js";
+import {useTodosStore} from "../../Stores/useTodosStore.js";
 
-const store = useTodoListStore();
+const todosStore = useTodosStore();
 
-const { todoList } = storeToRefs(store);
-const { toggleCompleted, deleteTodo } = store;
-
-const clearTodos = () => {
-    todoList.value = [];
-};
+const { todoList } = storeToRefs(todosStore);
+const { toggleCompleted, deleteTodo, clearTodos } = todosStore;
 
 </script>
 
