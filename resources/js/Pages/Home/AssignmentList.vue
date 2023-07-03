@@ -1,9 +1,12 @@
 <template>
-    <section v-show="assignments.length">
-        <h2 class="font-bold mb-2">
-            {{ title }}
-            <span>({{assignments.length}})</span>
-        </h2>
+    <section v-show="assignments.length" class="w-60">
+        <div class="flex justify-between items-start">
+            <h2 class="font-bold mb-2">
+                {{ title }}
+                <span>({{assignments.length}})</span>
+            </h2>
+            <button v-show="canToggle" @click="$emit('toggle')">&times;</button>
+        </div>
         <assignment-tags
             v-model:currentTag="currentTag"
             :initial-tags="assignments.map(a => a.tag)"
@@ -11,27 +14,33 @@
         <ul class="border border-2 border-black divide-y divide-black mt-6">
             <assignment v-for="assignment in filteredAssignments" :key="assignment.id" :assignment="assignment"/>
         </ul>
+
+        <slot></slot>
+
     </section>
 </template>
 
 <script>
 import Assignment from "./Assignment.vue";
 import AssignmentTags from "./AssignmentTags.vue";
+import AssignmentCreate from "./AssignmentCreate.vue";
 
 export default {
     name: "AssignmentList",
     data(){
         return {
-            currentTag: 'all'
+            currentTag: 'all',
         }
     },
     components:{
         Assignment,
         AssignmentTags,
+        AssignmentCreate,
     },
     props: {
         title: String,
         assignments: Array,
+        canToggle: { type:Boolean, default: false}
     },
     computed: {
         filteredAssignments(){
