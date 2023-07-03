@@ -2,7 +2,7 @@
     <div class="flex gap-2 p-2">
         <button
             v-for="tag in tags"
-            @click="$emit('change', tag)"
+            @click="$emit('update:currentTag', tag)"
             class="bg-blue-500 rounded-full shadow-md p-2 text-white font-bold text-xs"
             :class="{'border border-2 border-green-300 text-green-300': tag === currentTag}"
         >

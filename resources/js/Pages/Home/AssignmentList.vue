@@ -5,9 +5,8 @@
             <span>({{assignments.length}})</span>
         </h2>
         <assignment-tags
+            v-model:currentTag="currentTag"
             :initial-tags="assignments.map(a => a.tag)"
-            :currentTag="currentTag"
-            @change="currentTag = $event"
         />
         <ul class="border border-2 border-black divide-y divide-black mt-6">
             <assignment v-for="assignment in filteredAssignments" :key="assignment.id" :assignment="assignment"/>
