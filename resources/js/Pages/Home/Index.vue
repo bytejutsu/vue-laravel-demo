@@ -1,58 +1,13 @@
 <template>
-    <div id="app">
-        <h1 class="text-3xl font-bold text-center m-4 p-2">Home Playground</h1>
-        <section v-show="inProgressAssignments.length">
-            <h2 class="font-bold mb-2">In Progress</h2>
-            <ul>
-                <li
-                    v-for="assignment in inProgressAssignments"
-                    :key="assignment.id"
-                >
-                    <label>
-                        {{assignment.name}}
-                        <input type="checkbox" v-model="assignment.complete"/>
-                    </label>
-                </li>
-            </ul>
-        </section>
-
-        <section v-if="completedAssignments.length" class="mt-8">
-            <h2 class="font-bold mb-2">Completed</h2>
-            <ul>
-                <li
-                    v-for="assignment in completedAssignments"
-                    :key="assignment.id"
-                >
-                    <label>
-                        {{assignment.name}}
-                        <input type="checkbox" v-model="assignment.complete"/>
-                    </label>
-                </li>
-            </ul>
-        </section>
-    </div>
-
+    <assignments></assignments>
 </template>
 
 <script>
+
+    import Assignments from "./Assignments.vue";
+
     export default {
-        data(){
-            return {
-                assignments: [
-                    {name: "Finish Project", complete: false, id: 1},
-                    {name: "Read Chapter 4", complete: false, id: 2 },
-                    {name: "Turn in homework", complete: false, id: 3 },
-                ]
-            }
-        },
-        computed: {
-            inProgressAssignments(){
-                return this.assignments.filter(assignment => ! assignment.complete)
-            },
-            completedAssignments(){
-                return this.assignments.filter(assignment => assignment.complete)
-            }
-        }
+        components: {Assignments}
     }
 </script>
 
