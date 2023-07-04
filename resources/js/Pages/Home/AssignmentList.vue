@@ -1,5 +1,5 @@
 <template>
-    <section v-show="assignments.length" class="w-60">
+    <Panel v-show="assignments.length" class="w-60" id="my-panel">
         <div class="flex justify-between items-start">
             <h2 class="font-bold mb-2">
                 {{ title }}
@@ -17,13 +17,17 @@
 
         <slot></slot>
 
-    </section>
+        <template #footer>
+            my footer goes here
+        </template>
+    </Panel>
 </template>
 
 <script>
 import Assignment from "./Assignment.vue";
 import AssignmentTags from "./AssignmentTags.vue";
 import AssignmentCreate from "./AssignmentCreate.vue";
+import Panel from "./Panel.vue";
 
 export default {
     name: "AssignmentList",
@@ -36,6 +40,7 @@ export default {
         Assignment,
         AssignmentTags,
         AssignmentCreate,
+        Panel
     },
     props: {
         title: String,

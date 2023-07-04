@@ -1,13 +1,43 @@
 <template>
-    <assignments></assignments>
+    <div class="grid gap-6">
+        <assignments></assignments>
+
+        <panel>
+            This is my default content.
+        </panel>
+
+        <panel>
+            <template v-slot:heading>
+                Hi There
+            </template>
+
+            This is my default content.
+        </panel>
+
+
+        <panel>
+            <template v-slot:heading>
+                Hi There
+            </template>
+
+            This is my default content.
+
+            <template v-slot:footer>
+                Click here to learn more.
+            </template>
+        </panel>
+    </div>
 </template>
 
 <script>
-
     import Assignments from "./Assignments.vue";
+    import Panel from "./Panel.vue";
 
     export default {
-        components: {Assignments}
+        components: {
+            Assignments,
+            Panel
+        }
     }
 </script>
 
