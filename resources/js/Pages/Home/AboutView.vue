@@ -1,16 +1,14 @@
-<script>
-import flash from '@/Mixins/flash.js';
+<script setup>
+import {useFlash} from "../../Composables/useFlash.js";
 
-export default {
-    name: "AboutView",
-    mixins: [flash]
-}
+let { flash } = useFlash();
+
 </script>
 
 <template>
     <div>
         <p>
-            <button @click="flash('It Works on the about Page!')">click me</button>
+            <button @click="flash('Yay it works','It Works on the about Page!', 'info')">click me</button>
         </p>
     </div>
 </template>

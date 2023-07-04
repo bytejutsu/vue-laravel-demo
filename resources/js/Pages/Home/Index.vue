@@ -1,12 +1,8 @@
-<script>
-export default {
-    name: "Index",
-    methods: {
-        flash(message){
-            alert(message);
-        }
-    }
-}
+<script setup>
+import { useFlash } from "@/Composables/useFlash.js";
+
+let { flash } = useFlash();
+
 </script>
 
 <template>
@@ -14,7 +10,7 @@ export default {
     <main>
         <Link href="/about">About</Link>
         <p>
-            <button @click="flash('It Works!')">Click Me</button>
+            <button @click="flash('Test', 'It Works!')">Click Me</button>
         </p>
     </main>
 </template>
