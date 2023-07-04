@@ -1,6 +1,5 @@
 <template>
     <div id="app">
-        <h1 class="text-3xl font-bold text-center m-4 p-2">Home Playground</h1>
         <section class="flex gap-8">
             <assignment-list :assignments="filters.inProgress" title="In Progress">
                 <assignment-create @add="add"></assignment-create>

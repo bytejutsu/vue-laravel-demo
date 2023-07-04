@@ -1,45 +1,24 @@
-<template>
-    <div class="grid gap-6">
-        <assignments></assignments>
-
-        <panel>
-            This is my default content.
-        </panel>
-
-        <panel>
-            <template v-slot:heading>
-                Hi There
-            </template>
-
-            This is my default content.
-        </panel>
-
-
-        <panel>
-            <template v-slot:heading>
-                Hi There
-            </template>
-
-            This is my default content.
-
-            <template v-slot:footer>
-                Click here to learn more.
-            </template>
-        </panel>
-    </div>
-</template>
-
 <script>
-    import Assignments from "./Assignments.vue";
-    import Panel from "./Panel.vue";
-
-    export default {
-        components: {
-            Assignments,
-            Panel
+export default {
+    name: "Index",
+    methods: {
+        flash(message){
+            alert(message);
         }
     }
+}
 </script>
+
+<template>
+    <h1 class="text-3xl">Home Playground</h1>
+    <main>
+        <Link href="/about">About</Link>
+        <p>
+            <button @click="flash('It Works!')">Click Me</button>
+        </p>
+    </main>
+</template>
+
 
 <style scoped>
 

@@ -17,9 +17,14 @@ use Inertia\Inertia;
 |
 */
 
+Route::get('/assignments', function (){
+    return Inertia::render('Assignments/Index');
+});
+
 Route::get('/pinia', function (){
     return Inertia::render('Pinia/Index');
 });
+
 
 Route::get('login', [LoginController::class, 'create'])->name('login');
 
@@ -31,6 +36,10 @@ Route::middleware('auth')->group(function() {
 
     Route::get('/', function () {
         return Inertia::render('Home/Index');
+    });
+
+    Route::get('/about', function () {
+        return Inertia::render('Home/AboutView');
     });
 
     Route::get('/users', function () {
